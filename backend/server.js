@@ -8,15 +8,18 @@ const notesRouter = require("./routes/notes");
 const app = express();
 
 // middleware
-app.use(cors({
-  origin: process.env.CLIENT_URL,
-}));
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL,
+  })
+);
 app.use(express.json());
 
 // routes
 app.get("/", (req, res) => {
   res.json({ message: "Backend is running" });
 });
+
 app.use("/api/notes", notesRouter);
 
 // connect DB and start server
