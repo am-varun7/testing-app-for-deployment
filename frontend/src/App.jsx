@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+const API = import.meta.env.VITE_API_URL;
 
 function App() {
   const [notes, setNotes] = useState([]);
   const [text, setText] = useState("");
 
   const API = import.meta.env.VITE_API_URL;
+  console.log("api url: ",API);
 
   const fetchNotes = async () => {
     const res = await axios.get(`${API}/api/notes`);
